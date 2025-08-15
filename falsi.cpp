@@ -22,19 +22,13 @@ void regulaFalsi(double x1, double x2)
 
     double x3;
     int iter = 1;
-
-    // Print header
     cout << fixed << setprecision(4);
     cout << "Iter\t\tx1\t\tx2\t\tx3" << endl;
-
-    // Calculate initial x3
     x3 = (x1 * func(x2) - x2 * func(x1)) / (func(x2) - func(x1));
     cout << iter << "\t\t" << x1 << "\t\t" << x2 << "\t\t" << x3 << endl;
 
     while (fabs(func(x3)) >= EPSILON && iter < MAX_ITER) {
         iter++;
-
-        // Update interval based on sign of f(x3)
         if (func(x1) * func(x3) < 0)
             x2 = x3;
         else
